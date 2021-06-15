@@ -25,7 +25,7 @@ RUN npm run build --prod
 FROM nginxinc/nginx-unprivileged
 
 #### copy nginx conf
-COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 #### copy artifact build from the 'build environment'
 COPY --from=build /app/dist/PokeApi /usr/share/nginx/html
