@@ -22,7 +22,7 @@ COPY . /app
 RUN npm run build --prod
 
 ### STAGE 2: Run ###
-FROM nginxinc/nginx-unprivileged
+FROM nginx:1.17.1-alpine
 
 #### copy artifact build from the 'build environment'
 COPY --from=build /app/dist/PokeApi /usr/share/nginx/html
